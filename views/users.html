@@ -1,0 +1,12 @@
+<div class="card transparent z-depth-0">
+    <span class="card-title" style="text-align: center;">
+        Users
+    </span>
+    <div class="card-content">
+        <div class="collection">
+            <a ng-repeat="user in users" href="#/users/{{user.id}}/todos" class="collection-item">
+                {{user.name}}
+            </a>
+        </div>
+    </div>
+</div>

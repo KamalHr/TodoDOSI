@@ -1,0 +1,53 @@
+<div class="card transparent z-depth-0">
+    <span class="card-title" style="text-align: center;">
+        Posts
+    </span>
+    <div class="card-content">
+        <br>
+        <div class="row">
+            <div class="col m4">
+                <input type="text" ng-model="search.name" placeholder="Search by Name">
+            </div>
+            <div class="col m4">
+                <input type="text" ng-model="search.title" placeholder="Search by Title">
+            </div>
+            <div class="col m4">
+                <input type="text" ng-model="search.body" placeholder="Search by Body">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col m4">
+                <strong ng-click="orderBy='name'; reverse = !reverse;">
+                    Name
+                    <i class="fa fa-sort" ng-show="orderBy!='name'"></i>
+                    <i ng-class="{'fa-sort-desc': !reverse && orderBy=='name', 'fa-sort-asc': reverse && orderBy=='name'}" class="fa"></i>
+                </strong>
+            </div>
+            <div class="col m4">
+                <strong ng-click="orderBy='title'; reverse = !reverse;">
+                    Title
+                    <i class="fa fa-sort" ng-show="orderBy!='title'"></i>
+                    <i ng-class="{'fa-sort-desc': !reverse && orderBy=='title', 'fa-sort-asc': reverse && orderBy=='title'}" class="fa"></i>
+                </strong>
+            </div>
+            <div class="col m4">
+                <strong ng-click="orderBy='body'; reverse = !reverse;">
+                    Body
+                    <i class="fa fa-sort" ng-show="orderBy!='body'"></i>
+                    <i ng-class="{'fa-sort-desc': !reverse && orderBy=='body', 'fa-sort-asc': reverse && orderBy=='body'}" class="fa"></i>
+                </strong>
+            </div>
+        </div>
+        <div class="row" ng-repeat="post in posts | filter: search | orderBy: orderBy : reverse" style="border: 1px solid;">
+            <div class="col m4">
+                {{post.name = users[post.userId-1].name}}
+            </div>
+            <div class="col m4">
+                {{post.title}}
+            </div>
+            <div class="col m4">
+                {{post.body}}
+            </div>
+        </div>
+    </div>
+</div>
